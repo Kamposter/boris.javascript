@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>html doc to learn JS</title>
+	<script>
+		function isTimeValid(hours, minutes) {
+			if (hours >= 0 && hours <= 24 && minutes >= 0 && minutes <= 60) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		console.log('Task # 1');
+		console.log(isTimeValid(12, 40));
+		console.log(isTimeValid(-12, -40));
+		console.log(isTimeValid(12, -40));
+		console.log(isTimeValid(-12, 40));
+
+		function addMinutes(hours, minutes, addMinutes) {
+			var date = new Date(2019, 0, 0, hours, minutes);
+			date = new Date(date.getTime() + addMinutes * 60000);
+			return date.getHours() + ':' + date.getMinutes();
+		}
+
+		console.log('Task # 2');
+		console.log(addMinutes(12, 25, 30));
+		console.log(addMinutes(23, 40, 83));
+		console.log(addMinutes(12, 60, 1));
+
+		function getSeason(month) {
+			season = '';
+			switch (month) {
+				case 12:
+				case 1:
+				case 2:
+					season = 'Зима';
+					break;
+				case 3:
+				case 4:
+				case 5:
+					season = 'Весна';
+					break;
+				case 6:
+				case 7:
+				case 8:
+					season = 'Лето';
+					break;
+				case 9:
+				case 10:
+				case 11:
+					season = 'Осень';
+					break;
+			}
+			return season;
+		}
+
+		console.log('Task # 3');
+		console.log(getSeason(1));
+		console.log(getSeason(7));
+
+		function getDayDeclension(number) {
+			var lastone = number.toString().split('').pop();
+			ending = '';
+			switch (lastone) {
+				case '1':
+					ending = 'ень';
+					break;
+				case '2':
+				case '3':
+				case '4':
+					ending = 'ня';
+					break;
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				case '0':
+					ending = 'ней';
+					break;
+			}
+			return ending;
+		}
+
+		console.log('Task # 4'); // xD
+		console.log('Д' + getDayDeclension(2));
+		console.log('Д' + getDayDeclension(1));
+		console.log('Д' + getDayDeclension(7));
+		console.log('Д' + getDayDeclension(22));
+		console.log('Д' + getDayDeclension(1000));
+
+		function getSumm(number) {
+			if (number === 0) return 0;
+			return number + getSumm(number - 1);
+		}
+
+		console.log('Task # 5');
+		console.log(getSumm(6));
+
+	</script>
+</head>
+
+<body>
+	<h1>New doc for learning JS</h1>
+	<p>Some paragraph here</p>
+</body>
+
+</html>
