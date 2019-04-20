@@ -61,15 +61,18 @@
 
 		function getDayDeclension(number) {
 			var lastone = number.toString().split('').pop();
-			ending = '';
+			var ending = '';
+			if (number > 10 && number < 20) {
+				return 'Дней'
+			}
 			switch (lastone) {
 				case '1':
-					ending = 'ень';
+					ending = 'День';
 					break;
 				case '2':
 				case '3':
 				case '4':
-					ending = 'ня';
+					ending = 'Дня';
 					break;
 				case '5':
 				case '6':
@@ -77,18 +80,17 @@
 				case '8':
 				case '9':
 				case '0':
-					ending = 'ней';
+					ending = 'Дней';
 					break;
 			}
 			return ending;
 		}
 
-		console.log('Task # 4'); // xD
-		console.log('Д' + getDayDeclension(2));
-		console.log('Д' + getDayDeclension(1));
-		console.log('Д' + getDayDeclension(7));
-		console.log('Д' + getDayDeclension(22));
-		console.log('Д' + getDayDeclension(1000));
+		console.log('Task # 4');
+		console.log(getDayDeclension(2));
+		console.log(getDayDeclension(1));
+		console.log(getDayDeclension(7));
+
 
 		function getSumm(number) {
 			if (number === 0) return 0;
@@ -97,6 +99,40 @@
 
 		console.log('Task # 5');
 		console.log(getSumm(6));
+
+		function getWords(strValue) {
+			var words = strValue.split(' ');
+			var result = words.filter(function (word) {
+				if (word[0] === '#') {
+					return true;
+				}
+			});
+
+			return result.map(function (word) {
+				return word.slice(1);
+			});
+		}
+
+		console.log('lesson 5')
+		console.log('Task #1')
+		console.log(getWords('Прохожу курс в компнии #intexsoft по #javascript'));
+
+
+		function normalizeWords(wordsArr) {
+			var lowerWords = wordsArr.map(function (word) {
+				return word.toLowerCase();
+			});
+
+			var unique = lowerWords.filter(function (word, i) {
+				return lowerWords.indexOf(word) == i;
+			});
+
+			return unique.join([', ']);
+
+		}
+
+		console.log('Task #2');
+		console.log(normalizeWords(["web", "intexsoft", "JavaScript", "Intexsoft", "script", "programming"]));
 
 	</script>
 </head>
